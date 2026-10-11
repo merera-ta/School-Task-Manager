@@ -1,3 +1,5 @@
+const connectDB = require("./db");
+
 const express = require("express");
 
 const app = express();
@@ -62,6 +64,12 @@ app.post("/api/tasks", (req, res) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+const startServer = async () => { 
+  await connectDB();
+
+  app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+  });
+};
+
+startServer();

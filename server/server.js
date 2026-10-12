@@ -2,28 +2,11 @@ const connectDB = require("./db");
 
 const express = require("express");
 
+const Task = require("./models/Task");
+
 const app = express();
 app.use(express.json());
 const PORT = 5000;
-
-// Temporary task data
-const tasks = [
-  {
-    id: 1,
-    title: "Learn Express",
-    completed: false,
-  },
-  {
-    id: 2,
-    title: "Understand REST APIs",
-    completed: false,
-  },
-  {
-    id: 3,
-    title: "Connect MongoDB",
-    completed: false,
-  },
-];
 
 // Root route
 app.get("/", (req, res) => {
@@ -64,7 +47,7 @@ app.post("/api/tasks", (req, res) => {
   });
 });
 
-const startServer = async () => { 
+const startServer = async () => {
   await connectDB();
 
   app.listen(PORT, () => {

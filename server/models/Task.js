@@ -13,7 +13,8 @@ const taskSchema = new mongoose.Schema(
     },
   },
   {
-    timestamp: true,
+    timestamps: true,
   },
 );
+
 module.exports = mongoose.model("Task", taskSchema);

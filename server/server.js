@@ -1,4 +1,4 @@
-const connectDB = require("./db");
+const connectDB = require("./taskRoutes");
 
 const express = require("express");
 
